@@ -1,0 +1,85 @@
+/* Banco de preguntas, letras T a Z. Mismo formato que a-d.js.
+   En la X las respuestas no empiezan con X: el juego muestra "Contiene la X". */
+window.BANCO = window.BANCO || {};
+Object.assign(window.BANCO, {
+T: [
+  ['p',1,'Timoteo','Joven colaborador de Pablo, criado por su madre y su abuela en la fe; recibió dos cartas del apóstol.'],
+  ['p',1,'Tomás','Apóstol que dudó de la resurrección hasta tocar las heridas de Jesús.'],
+  ['p',2,'Tito','Colaborador de Pablo, dejado en Creta para organizar las iglesias.'],
+  ['p',3,'Tamar','Nuera de Judá que se disfrazó para obtener descendencia, madre de Pérez.'],
+  ['p',3,'Tadeo','Uno de los doce apóstoles, también llamado Judas hijo de Jacobo.'],
+  ['p',3,'Taré','Padre de Abrahán, que salió de Ur hacia Canaán pero se detuvo en Harán.'],
+  ['p',3,'Tiquico','Colaborador de Pablo que llevó sus cartas a Éfeso y a Colosas.'],
+  ['p',3,'Trofimo','Efesio por quien se alborotó el pueblo en Jerusalén, creyendo que Pablo lo había llevado al templo.'],
+  ['p',3,'Tercio','Escribiente que puso por escrito la carta a los Romanos de parte de Pablo.'],
+  ['p',3,'Tubal-caín','Hijo de Lamec, forjador de instrumentos de bronce y de hierro.','Tubalcaín'],
+  ['p',3,'Tiberio','Emperador romano en cuyo año quince comenzó el ministerio de Juan el Bautista.'],
+  ['l',2,'Tiro','Ciudad fenicia famosa por sus mercaderes y por su rey Hiram.'],
+  ['l',2,'Tarso','Ciudad de Cilicia donde nació Pablo.'],
+  ['l',2,'Tesalónica','Ciudad de Macedonia a cuyos cristianos escribió Pablo dos cartas.'],
+  ['l',3,'Tiatira','Ciudad de Asia, una de las siete iglesias, de donde era Lidia.'],
+  ['l',3,'Troas','Puerto de Asia Menor donde Pablo tuvo la visión del varón macedonio.'],
+  ['l',3,'Tabor','Monte de Galilea donde Débora y Barac reunieron su ejército.'],
+  ['l',3,'Tecoa','Pueblo de Judá de donde era el profeta Amós.'],
+  ['l',3,'Tarsis','Destino al que Jonás quiso huir en barco.'],
+  ['l',1,'Tierra prometida','Tierra que Dios prometió dar a la descendencia de Abrahán.','Canaán'],
+  ['l',3,'Tiberíades','Ciudad a orillas del mar de Galilea, nombre con que el evangelio de Juan también llama a ese mar.'],
+  ['o',1,'Templo','Edificio de Jerusalén que construyó Salomón y que destruyó Babilonia.'],
+  ['o',2,'Tabernáculo','Santuario portátil que Israel llevó por el desierto.'],
+  ['o',1,'Tentación','Prueba que Jesús enfrentó en el desierto durante cuarenta días.'],
+  ['o',2,'Tinieblas','Novena plaga de Egipto, que cubrió la tierra durante tres días.'],
+  ['o',1,'Trompeta','Instrumento que sonó siete veces el día en que cayeron las murallas de Jericó.','Trompetas'],
+  ['o',1,'Tablas','Piedras en las que Dios escribió los diez mandamientos.','Tablas de la ley'],
+  ['o',2,'Talentos','Monedas de una parábola de Jesús en que un amo reparte cinco, dos y uno entre sus siervos.'],
+  ['o',1,'Trigo','Cereal que Jesús comparó con la cizaña en una parábola.'],
+  ['o',2,'Tesoro','Lo que Jesús dijo que no acumuláramos en la tierra, donde la polilla y el orín corrompen.'],
+  ['o',2,'Tesalonicenses','Dos cartas de Pablo a una iglesia de Macedonia que esperaba el regreso de Jesús.']
+],
+U: [
+  ['p',3,'Urías','Soldado hitita, esposo de Betsabé, a quien el rey envió al frente de batalla para que muriera.','Urías el heteo'],
+  ['p',3,'Uzías','Rey de Judá que quedó leproso por entrar al templo a quemar incienso.','Ozías'],
+  ['p',3,'Uza','Hombre que murió por tocar el arca cuando los bueyes tropezaron.'],
+  ['p',3,'Urbano','Cooperador en Cristo saludado por Pablo en la carta a los Romanos.'],
+  ['l',2,'Ur','Ciudad de Caldea de donde salió Abrahán.','Ur de los caldeos'],
+  ['l',3,'Uz','Tierra donde vivía Job.'],
+  ['o',3,'Urim y Tumim','Objetos del pectoral del sumo sacerdote usados para consultar la voluntad de Dios.','Urim'],
+  ['o',2,'Unción','Rito de verter aceite sobre reyes, sacerdotes y profetas.'],
+  ['o',2,'Unigénito','Calificativo del Hijo en Juan 3:16: "que ha dado a su Hijo ...".'],
+  ['o',2,'Uvas','Fruto que los doce espías trajeron de Escol, en un racimo cargado entre dos.','Racimo']
+],
+V: [
+  ['p',2,'Vasti','Reina persa que se negó a presentarse ante su esposo y perdió el trono; Ester ocupó su lugar.'],
+  ['l',3,'Valle de Ela','Lugar donde David venció a Goliat.','Ela'],
+  ['o',1,'Viña','Lugar donde trabajaban los obreros de una parábola, y que Nabot no quiso vender.'],
+  ['o',1,'Vid','Planta con la que Jesús se comparó: "yo soy la ..., vosotros los pámpanos".'],
+  ['o',1,'Vino','Bebida en que Jesús convirtió el agua en una boda.'],
+  ['o',2,'Vara','Objeto de Aarón que floreció, y que Moisés alzó sobre el mar.'],
+  ['o',2,'Víbora','Animal que mordió a Pablo en la isla de Malta.'],
+  ['o',3,'Vellón','Lana de oveja que Gedeón extendió en la era para pedir una señal a Dios.'],
+  ['o',2,'Verbo','Nombre griego de Jesús al comienzo del evangelio de Juan: "en el principio era el ...".','Logos']
+],
+X: [
+  ['o',1,'Éxodo','Libro que narra la salida de Israel de Egipto; es el segundo de la Biblia.'],
+  ['o',2,'Exilio','Período en que los judíos vivieron deportados en Babilonia.'],
+  ['o',3,'Sexta','Hora del mediodía, a la cual hubo tinieblas sobre la tierra mientras Jesús agonizaba en el madero.'],
+  ['o',3,'Exorcistas','Judíos ambulantes de Éfeso que invocaban el nombre de Jesús sobre los endemoniados.'],
+  ['o',3,'Expiación','Cubrir el pecado mediante sacrificio; el gran día de ella se celebraba cada año.'],
+  ['o',2,'Extranjero','Persona que no era del pueblo de Israel, como Rut en Belén; Dios mandó amarla.']
+],
+Z: [
+  ['p',1,'Zaqueo','Cobrador de impuestos de baja estatura, de Jericó, que se subió a un árbol para ver pasar a Jesús.'],
+  ['p',2,'Zacarías','Sacerdote, padre de Juan el Bautista, que quedó mudo por dudar del ángel.'],
+  ['p',3,'Zorobabel','Gobernador de Judá que lideró la reconstrucción del templo tras el exilio.'],
+  ['p',2,'Zebedeo','Pescador, padre de los apóstoles Jacobo y Juan.'],
+  ['p',3,'Zabulón','Hijo de Jacob y Lea, cuya tribu habitó cerca del mar de Galilea.'],
+  ['p',3,'Zilpa','Sierva de Lea y madre de Gad y Aser.'],
+  ['p',3,'Zofar','Uno de los tres amigos de Job, naamatita.'],
+  ['p',3,'Zimri','Rey de Israel que reinó siete días y se quemó en su palacio.'],
+  ['p',3,'Zeba','Rey de Madián perseguido por Gedeón junto con Zalmuna.'],
+  ['l',3,'Zoar','Pequeña ciudad adonde huyó Lot de la destrucción de Sodoma.'],
+  ['o',1,'Zarza','Arbusto que ardía sin consumirse delante de Moisés.'],
+  ['o',3,'Zafiro','Piedra preciosa azul, como la del pavimento bajo los pies del Dios de Israel en el monte.'],
+  ['o',2,'Zorras','Animales que Sansón soltó con antorchas para quemar los sembrados de los filisteos.','Zorra'],
+  ['o',2,'Zapatos','Calzado que Dios mandó quitarse a Moisés ante la zarza, por ser tierra santa.','Sandalias']
+]
+});

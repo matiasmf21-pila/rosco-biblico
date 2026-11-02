@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0D1322">
+<title>Rosco Bíblico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=DM+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main id="app">
+
+  <!-- 1. Preparar la partida -->
+  <section id="inicio" class="pantalla">
+    <header class="cabecera">
+      <h1>Rosco Bíblico</h1>
+      <p class="sub" id="infoBanco">Para jugar en familia o con amigos</p>
+    </header>
+
+    <div class="ficha">
+      <div class="label" id="lbModo">Quién ve la respuesta</div>
+      <div class="seg" data-key="modo" role="group" aria-labelledby="lbModo">
+        <button type="button" class="chip" data-v="anfitrion">Con anfitrión</button>
+        <button type="button" class="chip" data-v="compartida">Pantalla compartida</button>
+      </div>
+      <p class="nota" id="notaModo"></p>
+    </div>
+
+    <div class="ficha">
+      <div class="label" id="lbJug">Jugadores</div>
+      <div class="seg" data-key="n" role="group" aria-labelledby="lbJug">
+        <button type="button" class="chip" data-v="2">2</button>
+        <button type="button" class="chip" data-v="3">3</button>
+        <button type="button" class="chip" data-v="4">4</button>
+        <button type="button" class="chip" data-v="5">5</button>
+        <button type="button" class="chip" data-v="6">6</button>
+        <button type="button" class="chip" data-v="7">7</button>
+        <button type="button" class="chip" data-v="8">8</button>
+      </div>
+      <div class="nombres" id="nombres"></div>
+    </div>
+
+    <div class="ficha">
+      <div class="label" id="lbTiempo">Tiempo de cada jugador</div>
+      <div class="seg" data-key="time" role="group" aria-labelledby="lbTiempo">
+        <button type="button" class="chip" data-v="60">1:00</button>
+        <button type="button" class="chip" data-v="90">1:30</button>
+        <button type="button" class="chip" data-v="150">2:30</button>
+        <button type="button" class="chip" data-v="240">4:00</button>
+        <button type="button" class="chip" data-v="0">Sin límite</button>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <div class="label" id="lbDif">Dificultad</div>
+      <div class="seg" data-key="dif" role="group" aria-labelledby="lbDif">
+        <button type="button" class="chip" data-v="facil">Más fáciles</button>
+        <button type="button" class="chip" data-v="mezcla">Mezcla</button>
+        <button type="button" class="chip" data-v="dificil">Más difíciles</button>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <div class="label" id="lbCat">Temas</div>
+      <div class="seg" id="cats" role="group" aria-labelledby="lbCat">
+        <button type="button" class="chip" data-cat="p">Personajes</button>
+        <button type="button" class="chip" data-cat="l">Lugares</button>
+        <button type="button" class="chip" data-cat="o">Libros y otros</button>
+      </div>
+    </div>
+
+    <div class="acciones-inicio">
+      <button type="button" class="btn grande" id="btnEmpezar">Empezar</button>
+      <button type="button" class="btn link" id="btnOlvidar">Olvidar las preguntas ya usadas</button>
+    </div>
+    <p class="aviso" id="avisoOlvidar" aria-live="polite"></p>
+  </section>
+
+  <!-- 2. Partida -->
+  <section id="juego" class="pantalla" hidden>
+    <div class="marcador" id="marcador"></div>
+    <div class="escena">
+      <div class="ring" id="ring" role="img" aria-label="Rosco del jugador en turno">
+        <div class="core">
+          <div class="bigletter" id="bigLetter">A</div>
+          <div class="clock" id="clock">02:30</div>
+          <div class="tally"><span><b id="nOk">0</b> aciertos</span><span><b id="nBad">0</b> fallos</span></div>
+        </div>
+      </div>
+
+      <section class="panel" id="panel">
+        <div class="turno" id="turnoDe" aria-live="polite"></div>
+        <div>
+          <div class="label" id="tipo"></div>
+          <p class="clue" id="pista"></p>
+        </div>
+        <div class="revela" id="revela" hidden>
+          <div class="label" id="lbResp">Respuesta</div>
+          <div class="respuesta" id="respuesta"></div>
+          <div class="tambien" id="tambien"></div>
+        </div>
+        <div class="acciones" id="acc1">
+          <button type="button" class="btn grande" id="btnVer">Ver respuesta</button>
+          <button type="button" class="btn alt grande" id="btnPasa">Pasapalabra</button>
+        </div>
+        <div class="acciones" id="acc2" hidden>
+          <button type="button" class="btn ok grande" id="btnOk">Acertó</button>
+          <button type="button" class="btn mal grande" id="btnMal">Falló</button>
+          <button type="button" class="btn alt grande" id="btnPasa2" hidden>Pasapalabra</button>
+        </div>
+        <div class="extras">
+          <span class="atajos" id="atajos">Espacio: ver respuesta · P: pasapalabra</span>
+          <span class="extras-btns">
+            <button type="button" class="btn link" id="btnPausa">Pausa</button>
+            <button type="button" class="btn link" id="btnPantalla">Pantalla completa</button>
+            <button type="button" class="btn link" id="btnTerminar">Terminar</button>
+          </span>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- 3. Resultados -->
+  <section id="final" class="pantalla" hidden>
+    <header class="cabecera">
+      <h2 class="titulo-final" id="tituloFinal"></h2>
+      <p class="sub" id="subFinal"></p>
+    </header>
+    <ol class="podio" id="podio"></ol>
+    <div class="ficha" id="repasoBox">
+      <div class="label">Para repasar</div>
+      <ul class="repaso" id="repaso"></ul>
+    </div>
+    <div class="acciones-inicio">
+      <button type="button" class="btn grande" id="btnRevancha">Revancha con los mismos jugadores</button>
+      <button type="button" class="btn alt grande" id="btnNueva">Cambiar ajustes</button>
+    </div>
+  </section>
+</main>
+
+<!-- Avisos de turno y pausa -->
+<div class="overlay" id="overlay" hidden>
+  <div class="overlay-caja">
+    <div class="overlay-titulo" id="ovTitulo"></div>
+    <div class="overlay-sub" id="ovSub"></div>
+    <button type="button" class="btn grande" id="ovBtn" hidden>Continuar</button>
+  </div>
+</div>
+
+<script src="preguntas/a-d.js"></script>
+<script src="preguntas/e-h.js"></script>
+<script src="preguntas/i-j.js"></script>
+<script src="preguntas/l-o.js"></script>
+<script src="preguntas/p-s.js"></script>
+<script src="preguntas/t-z.js"></script>
+<script src="preguntas/extras.js"></script>
+<script src="preguntas/tnm.js"></script>
+<script src="juego.js"></script>
+</body>
+</html>
