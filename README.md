@@ -9,8 +9,8 @@ Hay dos formas de jugar (se elige al empezar):
 - **Pantalla compartida:** todos ven la pista, por ejemplo en una tele. La respuesta aparece cuando alguien toca **Ver respuesta**, y el reloj se detiene mientras tanto.
 
 - 636 preguntas (personajes, lugares, libros y otros temas), 23 letras, 3 niveles de dificultad.
-- Cada jugador tiene su propio rosco y su propio reloj, que solo corre en su turno.
-- Falla o dice "pasapalabra": pasa el turno. Si acierta, sigue.
+- Cada jugador tiene su propio rosco y su propio reloj. Juega su rosco completo de corrido (las letras pasadas vuelven en la segunda vuelta) y el turno pasa al siguiente cuando termina o se le acaba el tiempo.
+- Antes de cada turno aparece un botón **Comenzar**, para que el jugador esté listo antes de que corra el reloj.
 - Las preguntas que ya salieron se evitan en las partidas siguientes, hasta agotarse.
 - No usa servidores ni base de datos: es un sitio estático. Nada se envía a ningún lado.
 

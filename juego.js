@@ -1,7 +1,7 @@
 /* Rosco Bíblico, modo presencial.
    Cada jugador tiene su propio rosco y su propio reloj, que solo corre en su turno.
    Se responde en voz alta: alguien toca "Ver respuesta" y el grupo marca "Acertó" o "Falló".
-   El turno pasa cuando un jugador falla o dice "pasapalabra". */
+   Cada jugador juega su rosco completo; el turno pasa al siguiente cuando termina o se le acaba el tiempo. */
 (function () {
   'use strict';
 
@@ -213,7 +213,7 @@
     pedirPantallaActiva();
     render();
     var q = g.jugadores[0].qs[0];
-    anunciar('Turno de ' + nombres[0], 'Empieza con la ' + q.L, null);
+    anunciar('Turno de ' + nombres[0], 'Empieza con la ' + q.L, null, 'Comenzar');
     g.reloj = setInterval(tic, 200);
   }
 
@@ -306,8 +306,7 @@
     g.revelada = false;
     var k = siguienteLetra(j, j.cur);
     if (k === -1) j.done = true; else j.cur = k;
-    if (acerto && !j.done) { render(); return; }
-    cambiarTurno(j.done ? 'termino' : 'fallo', letra);
+    if (j.done) cambiarTurno('termino', letra); else render();
   }
 
   function pasar() {
@@ -315,7 +314,7 @@
     var j = activo();
     j.st[j.cur] = 'pass';
     j.cur = siguienteLetra(j, j.cur);
-    cambiarTurno('pasa');
+    render();
   }
 
   function cambiarTurno(motivo, letra) {
@@ -336,7 +335,7 @@
       termino: anterior.name + ' completó su rosco',
       tiempo: anterior.name + ' se quedó sin tiempo'
     }[motivo];
-    anunciar('Turno de ' + g.jugadores[sig].name, msg, null);
+    anunciar('Turno de ' + g.jugadores[sig].name, msg + ' · Empieza con la ' + g.jugadores[sig].qs[g.jugadores[sig].cur].L, null, 'Comenzar');
   }
 
   function pausar() {
@@ -441,7 +440,7 @@
     if (!g || !g.activa || e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.target && /input|textarea/i.test(e.target.tagName)) return;
     var k = e.key.toLowerCase();
-    if (g.aviso) return;
+    if (g.aviso) { if ((k === 'enter' || k === ' ') && !$('ovBtn').hidden) { e.preventDefault(); cerrarAviso(); } return; }
     if (k === 'escape') { pausar(); return; }
     if (esAnfitrion()) {
       if (k === 'a' || k === '1') veredicto(true);
